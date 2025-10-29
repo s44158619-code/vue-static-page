@@ -1,5 +1,20 @@
-# Vue 3 + TypeScript + Vite
+# vue-static-page (한가위 테마 페이지)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**🔗 배포 URL:** https://s44158619-code.github.io/vue-static-page/
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+`vue-static-page` 프로젝트는 Vue 3 + TypeScript + Vite를 기반으로 생성되었으며, GitHub Actions를 통해 GitHub Pages에 자동으로 배포됩니다.
+
+## 🚀 실습 5단계: 사용한 프롬프트
+
+페이지의 한가위 테마 콘텐츠를 생성하기 위해 다음과 같은 프롬프트를 사용했습니다.
+
+```text
+한가위(추석)를 주제로 한 Vue 정적 페이지를 만들고 있어. 방문자에게 풍성한 한가위 느낌을 줄 수 있는 '쌈뽕한' 콘텐츠가 필요해.
+
+1.  메인 페이지를 환영하는 감성적인 **메인 카피** (제목과 짧은 설명)
+2.  추석에 먹는 **대표적인 전통 음식** 3가지 (이름과 간단한 설명)
+3.  추석에 즐기는 **전통 놀이** 3가지 (이름과 간단한 설명)
+
+이 모든 것을 한국어로, 친근하면서도 정보를 주는 톤으로 작성해 줘.
