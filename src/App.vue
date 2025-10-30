@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// 이미지 URL을 바로 데이터로 사용 (로컬 파일 없음!)
+// --- 이 <script> 부분은 이전과 동일합니다 ---
 const mainImage = "https://images.unsplash.com/photo-1597839219228-e8c09b0e5d9c?q=80&w=1974&auto=format&fit=crop";
 
 const mainTitle = "가장 밝은 달, 한가위";
@@ -58,7 +58,12 @@ const plays = [
         <h2><span class="emoji">😋</span> 한가위, 무엇을 먹을까?</h2>
         <div class="card-grid">
           <div class="card" v-for="food in foods" :key="food.name">
-            <img :src="food.image" :alt="food.name" class="card-image">
+            <div
+                class="card-image"
+                :style="{ backgroundImage: 'url(' + food.image + ')' }"
+                role="img"
+                :aria-label="food.name"
+            ></div>
             <div class="card-content">
               <h3>{{ food.name }}</h3>
               <p>{{ food.description }}</p>
@@ -71,7 +76,12 @@ const plays = [
         <h2><span class="emoji">🤹</span> 한가위, 무엇을 하고 놀까?</h2>
         <div class="card-grid">
           <div class="card" v-for="play in plays" :key="play.name">
-            <img :src="play.image" :alt="play.name" class="card-image">
+            <div
+                class="card-image"
+                :style="{ backgroundImage: 'url(' + play.image + ')' }"
+                role="img"
+                :aria-label="play.name"
+            ></div>
             <div class="card-content">
               <h3>{{ play.name }}</h3>
               <p>{{ play.description }}</p>
@@ -89,29 +99,27 @@ const plays = [
 </template>
 
 <style>
-/* 쌈뽕한 폰트 적용 (Google Fonts) */
+/* 폰트 및 기본 스타일은 동일 */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 
-/* 기본 스타일 초기화 및 설정 */
 body {
   font-family: 'Nanum Gothic', 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f2f5; /* 더 세련된 배경색 */
+  background-color: #f0f2f5;
   color: #333;
 }
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  overflow: hidden; /* 그림자 잘림 방지 */
+  overflow: hidden;
 }
 
-/* 1. 쌈뽕한 헤더 (히어로 이미지) */
+/* 히어로 헤더 스타일 동일 */
 .hero-header {
   position: relative;
   width: 100%;
-  height: 60vh; /* 화면 높이의 60% */
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,82 +127,72 @@ body {
   color: white;
   margin-bottom: 40px;
 }
-
 .hero-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지가 찌그러지지 않게 */
+  object-fit: cover;
   z-index: 1;
 }
-
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 어둡게 오버레이 */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
-
 .hero-content {
   position: relative;
   z-index: 3;
   padding: 20px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 텍스트 그림자 */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
-
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 700;
   margin: 0;
 }
-
 .hero-content p {
   font-size: 1.5rem;
   margin-top: 10px;
 }
 
-/* 메인 콘텐츠 래퍼 */
+/* 콘텐츠 섹션 스타일 동일 */
 .content-wrapper {
   padding: 0 20px;
 }
-
-/* 2. 쌈뽕한 콘텐츠 섹션 */
 .content-section {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
   margin-bottom: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); /* 입체감 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
 }
-
 .content-section h2 {
   font-size: 2.2rem;
   font-weight: 700;
   color: #2c3e50;
-  border-bottom: 3px solid #6c5ce7; /* 쌈뽕한 보라색 포인트 */
+  border-bottom: 3px solid #6c5ce7;
   padding-bottom: 15px;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
 }
-
 .emoji {
   font-size: 2.5rem;
   margin-right: 15px;
 }
 
-/* 3. 쌈뽕한 카드 그리드 */
+/* 카드 그리드 스타일 동일 */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
 }
-
 .card {
   background: #fff;
   border-radius: 10px;
@@ -202,55 +200,56 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
-
 .card:hover {
-  transform: translateY(-8px); /* 쌈뽕한 호버 효과 */
+  transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* ▼▼▼ 이 부분이 변경되었습니다 ▼▼▼ */
 .card-image {
   width: 100%;
   height: 220px;
-  object-fit: cover;
-  display: block;
-}
+  /* object-fit: cover;     <- <img> 태그용 속성 */
+  /* display: block;        <- <img> 태그용 속성 */
 
+  /* <div> 태그를 위한 배경 이미지 속성 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* ▲▲▲ 이 부분이 변경되었습니다 ▲▲▲ */
+
+/* 카드 콘텐츠 스타일 동일 */
 .card-content {
   padding: 20px;
 }
-
 .card h3 {
   font-size: 1.6rem;
   font-weight: 700;
   color: #333;
   margin: 0 0 10px 0;
 }
-
 .card p {
   font-size: 1rem;
   color: #555;
   line-height: 1.6;
 }
 
-/* 4. 쌈뽕한 푸터 */
+/* 푸터 및 반응형 스타일 동일 */
 .site-footer {
   text-align: center;
   margin-top: 40px;
   padding: 30px 20px;
-  background-color: #2c3e50; /* 어두운 배경 */
+  background-color: #2c3e50;
   color: #f0f2f5;
 }
-
 .site-footer p {
   margin: 5px 0;
   font-size: 1rem;
 }
-
 .site-footer strong {
-  color: #a7c5eb; /* 닉네임 강조 */
+  color: #a7c5eb;
 }
-
-/* 모바일 반응형 */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
@@ -262,7 +261,7 @@ body {
     font-size: 1.8rem;
   }
   .card-grid {
-    grid-template-columns: 1fr; /* 모바일에선 1열로 */
+    grid-template-columns: 1fr;
   }
 }
 </style>
