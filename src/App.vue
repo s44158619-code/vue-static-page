@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// --- 이 <script> 부분은 이전과 동일합니다 ---
+// --- <script> 부분은 변경 사항 없습니다 ---
 const mainImage = "https://images.unsplash.com/photo-1597839219228-e8c09b0e5d9c?q=80&w=1974&auto=format&fit=crop";
 
 const mainTitle = "가장 밝은 달, 한가위";
@@ -44,15 +44,16 @@ const plays = [
 
 <template>
   <div class="container">
-    <header class="hero-header">
-      <img :src="mainImage" alt="한가위 보름달" class="hero-image">
+    <header
+        class="hero-header"
+        :style="{ backgroundImage: 'url(' + mainImage + ')' }"
+    >
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>{{ mainTitle }}</h1>
         <p>{{ mainSubtitle }}</p>
       </div>
     </header>
-
     <main class="content-wrapper">
       <section class="content-section">
         <h2><span class="emoji">😋</span> 한가위, 무엇을 먹을까?</h2>
@@ -115,7 +116,7 @@ body {
   overflow: hidden;
 }
 
-/* 히어로 헤더 스타일 동일 */
+/* ▼▼▼ 이 부분이 변경되었습니다 ▼▼▼ */
 .hero-header {
   position: relative;
   width: 100%;
@@ -126,17 +127,17 @@ body {
   text-align: center;
   color: white;
   margin-bottom: 40px;
+
+  /* <img>의 속성을 헤더 배경으로 가져옴 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.hero-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
+
+/* .hero-image 클래스는 이제 필요 없으므로 삭제되었습니다. */
+
 .hero-overlay {
+  /* ▲▲▲ 이 부분이 변경되었습니다 ▲▲▲ */
   position: absolute;
   top: 0;
   left: 0;
@@ -161,7 +162,7 @@ body {
   margin-top: 10px;
 }
 
-/* 콘텐츠 섹션 스타일 동일 */
+/* 이하 스타일은 변경 사항 없습니다 */
 .content-wrapper {
   padding: 0 20px;
 }
@@ -186,8 +187,6 @@ body {
   font-size: 2.5rem;
   margin-right: 15px;
 }
-
-/* 카드 그리드 스타일 동일 */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -205,21 +204,15 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* ▼▼▼ 이 부분이 변경되었습니다 ▼▼▼ */
+/* 카드 이미지는 지난번 수정과 동일 (background-image) */
 .card-image {
   width: 100%;
   height: 220px;
-  /* object-fit: cover;     <- <img> 태그용 속성 */
-  /* display: block;        <- <img> 태그용 속성 */
-
-  /* <div> 태그를 위한 배경 이미지 속성 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-/* ▲▲▲ 이 부분이 변경되었습니다 ▲▲▲ */
 
-/* 카드 콘텐츠 스타일 동일 */
 .card-content {
   padding: 20px;
 }
@@ -234,8 +227,6 @@ body {
   color: #555;
   line-height: 1.6;
 }
-
-/* 푸터 및 반응형 스타일 동일 */
 .site-footer {
   text-align: center;
   margin-top: 40px;
